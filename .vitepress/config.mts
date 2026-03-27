@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Atelier 18",
   description: "Atelier sur l'installation et l'utilisation de Vitepress",
+  base: '/appweb-exer18/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
