@@ -1,85 +1,42 @@
-# Markdown Extension Examples
+# Revue de code TP01 Sacha
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+## Revue de codes des components 
 
-## Syntax Highlighting
+**MainScreen.vue** 
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
+**Bon coup**
+General
+Les noms des fonctions est clair et précis.
+Les fichiers sont bien séparer les un des autres 
 
-**Input**
 
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
+J'ai bien aimer l'utulisation du Omit  pour la fonction ajouter. 
+```ts
+function handleAdd(newItemData: Omit<Item, "id">): void {
+  const newItem: Item = {
+    id: nextId++,
+    ...newItemData,
+  };
+  items.value.push(newItem);
 }
 ```
 
-## Custom Containers
+**EditItem**
 
-**Input**
+Bon Coup
 
-```md
-::: info
-This is an info box.
-:::
+Bonne function pour valider le formulaire, simple et efficace. 
 
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
+```ts
+function isFormValid(): boolean {
+  return (
+    !!formData.name.trim() &&
+    formData.price > 0 &&
+    formData.stock >= 0 &&
+    !!formData.description.trim()
+  );
+}
 ```
 
-**Output**
-
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+**Mauvais coup**
+On repete plusieurs fois la fonction isFormValid
